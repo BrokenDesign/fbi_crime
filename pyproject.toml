@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "fbi-crime"
+version = "0.1.0"
+description = ""
+authors = ["Br0k3nDesign <adam.j.moran@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+polars = "^0.19.12"
+camelot-py = "^0.11.0"
+opencv-python = "^4.8.1.78"
+ghostscript = "^0.7"
+matplotlib = "^3.8.1"
+seaborn = "^0.13.0"
+plotly-express = "^0.4.1"
+pyarrow = "^14.0.0"
+python-box = "^7.1.1"
+srsly = "^2.4.8"
+icecream = "^2.1.3"
+dynaconf = "^3.2.4"
+ruamel-yaml = "^0.18.5"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.1"
+isort = "^5.12.0"
+mypy = "^1.6.1"
+pytest = "^7.4.3"
+ipykernel = "^6.26.0"
+pytest-sugar = "^0.9.7"
+pytest-icdiff = "^0.8"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra"
+testpaths = ["tests"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
