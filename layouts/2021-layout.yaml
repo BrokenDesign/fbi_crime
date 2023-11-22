@@ -1,0 +1,1664 @@
+# ---------------------------------------------------------------------------------------
+# Value Definitions
+# ---------------------------------------------------------------------------------------
+state_numeric_codes: &state_numeric_codes
+  "50": "Alaska"
+  "01": "Alabama"
+  "03": "Arkansas"
+  "54": "American Samoa"
+  "02": "Arizona"
+  "04": "California"
+  "05": "Colorado"
+  "06": "Connecticut"
+  "52": "Canal Zone"
+  "08": "District of Columbia"
+  "07": "Delaware"
+  "09": "Florida"
+  "10": "Georgia"
+  "55": "Guam"
+  "51": "Hawaii"
+  "14": "Iowa"
+  "11": "Idaho"
+  "12": "Illinois"
+  "13": "Indiana"
+  "15": "Kansas"
+  "16": "Kentucky"
+  "17": "Louisiana"
+  "20": "Massachusetts"
+  "19": "Maryland"
+  "18": "Maine"
+  "21": "Michigan"
+  "22": "Minnesota"
+  "24": "Missouri"
+  "23": "Mississippi"
+  "25": "Montana"
+  "26": "Nebraska"
+  "32": "North Carolina"
+  "33": "North Dakota"
+  "28": "New Hampshire"
+  "29": "New Jersey"
+  "30": "New Mexico"
+  "27": "Nevada"
+  "31": "New York"
+  "34": "Ohio"
+  "35": "Oklahoma "
+  "36": "Oregon"
+  "37": "Pennsylvania"
+  "53": "Puerto Rico"
+  "38": "Rhode Island"
+  "39": "South Carolina"
+  "40": "South Dakota"
+  "41": "Tennessee"
+  "42": "Texas"
+  "43": "Utah"
+  "62": "Virgin Islands"
+  "45": "Virginia"
+  "44": "Vermont"
+  "46": "Washington"
+  "48": "Wisconsin"
+  "47": "West Virginia"
+  "49": "Wyoming"
+  
+state_string_codes: &state_string_codes
+  "AL": "Alabama"
+  "AK": "Alaska"
+  "AZ": "Arizona"
+  "AR": "Arkansas"
+  "CA": "California"
+  "CO": "Colorado"
+  "CT": "Connecticut"
+  "DE": "Delaware"
+  "FL": "Florida"
+  "GA": "Georgia"
+  "HI": "Hawaii"
+  "ID": "Idaho"
+  "IL": "Illinois"
+  "IN": "Indiana"
+  "IA": "Iowa"
+  "KS": "Kansas"
+  "KY": "Kentucky"
+  "LA": "Louisiana"
+  "ME": "Maine"
+  "MD": "Maryland"
+  "MA": "Massachusetts"
+  "MI": "Michigan"
+  "MN": "Minnesota"
+  "MS": "Mississippi"
+  "MO": "Missouri"
+  "MT": "Montana"
+  "NE": "Nebraska"
+  "NV": "Nevada"
+  "NH": "New Hampshire"
+  "NJ": "New Jersey"
+  "NM": "New Mexico"
+  "NY": "New York"
+  "NC": "North Carolina"
+  "ND": "North Dakota"
+  "OH": "Ohio"
+  "OK": "Oklahoma"
+  "OR": "Oregon"
+  "PA": "Pennsylvania"
+  "RI": "Rhode Island"
+  "SC": "South Carolina"
+  "SD": "South Dakota"
+  "TN": "Tennessee"
+  "TX": "Texas"
+  "UT": "Utah"
+  "VT": "Vermont"
+  "VA": "Virginia"
+  "WA": "Washington"
+  "WV": "West Virginia"
+  "WI": "Wisconsin"
+  "WY": "Wyoming"
+  "DC": "District of Columbia"
+  "AS": "American Samoa"
+  "GU": "Guam"
+  "MP": "Northern Mariana Islands"
+  "PR": "Puerto Rico"
+  "UM": "United States Minor Outlying Islands"
+  "VI": "U.S. Virgin Islands"
+
+race_codes: &race_codes
+  "": "Unknown"
+  "W": "White"
+  "B": "Black or African American"
+  "I": "American Indian/Alaska Native"
+  "A": "Asian"
+  "M": "Group of Multiple Races"
+  "P": "Native Hawaiian/Other Pacific Islander"
+  "U": "Unknown"
+
+ethnicity_codes: &ethnicity_codes
+  "": "Unknown"
+  "H": "Hispanic"
+  "N": "Not Hispanic"
+  "M": "Multiple"
+  "U": "Unknown"
+
+offense_codes: &offense_codes
+  "": "Unknown"
+  "200": Arson
+  "13A": Aggravated Assault
+  "13B": Simple Assault
+  "13C": Intimidation
+  "510": Bribery
+  "220": Burglary/Breaking and Entering
+  "250": Counterfeiting/Forgery
+  "290": Destruction/Damage/Vandalism or Property
+  "35A": Drug/Narcotic Violations
+  "35B": Drug Equipment Violations
+  "270": Embezzlement
+  "210": Extortion/Blackmail
+  "26A": False Pretenses/Swindle/Confidence Game
+  "26B": Credit Card/Automatic Teller Machine Fraud
+  "26C": Impersonation
+  "26D": Welfare Fraud
+  "26E": Wire Fraud
+  "39A": Betting/Wagering
+  "39B": "Operating/Promoting/Assisting Gambling"
+  "39C": "Gambling Equipment Violations"
+  "39D ": "Sports Tampering"
+  "09A": "Murder/Non-negligent Manslaughter"
+  "09B": "Negligent Manslaughter"
+  "09C": "Justifiable Homicide"
+  "100": "Kidnapping/Abduction"
+  "23A": "Pocket-picking"
+  "23B": "Purse-snatching"
+  "23C": "Shoplifting"
+  "23D": "Theft from Building"
+  "23E": "Theft from Coin-Operated Machine or Device"
+  "23F": "Theft from Motor Vehicle"
+  "23G": "Theft of Motor Vehicle Parts/Accessories"
+  "23H": "All Other Larceny"
+  "240": "Motor Vehicle Theft"
+  "370": "Pornography/Obscene Material"
+  "40A": "Prostitution"
+  "40B": "Assisting or Promoting Prostitution"
+  "120": "Robbery"
+  "11A": "Rape"
+  "11B": "Sodomy"
+  "11C": "Sexual Assault With An Object"
+  "11D": "Fondling (Indecent Liberties/Child Molestation)"
+  "36A": "Incest"
+  "36B": "Statutory Rape"
+  "280": "Stolen Property Offenses (Receiving, Selling, Etc.)"
+  "520": "Weapon Law Violations"
+
+offense_location_codes: &offense_location_codes
+  "01": "Air/Bus/Train Terminal"
+  "02": "Bank/Savings and Loan"
+  "03": "Bar/Nightclub"
+  "04": "Church/Synagogue/Temple"
+  "05": "Commercial/Office Building"
+  "06": "Construction Site"
+  "07": "Convenience Store"
+  "08": "Department/Discount Store"
+  "09": "Drug Store/Dr.'s Office/Hospital"
+  "10": "Field/Woods"
+  "11": "Government/Public Building"
+  "12": "Grocery/Supermarket"
+  "13": "Highway/Road/Alley"
+  "14": "Hotel/Motel/Etc."
+  "15": "Jail/Prison"
+  "16": "Lake/Waterway"
+  "17": "Liquor Store"
+  "18": "Parking Lot/Garage"
+  "19": "Rental Storage Facility"
+  "20": "Residence/Home"
+  "21": "Restaurant"
+  "22": "School/College"
+  "23": "Service/Gas Station"
+  "24": "Specialty Store (TV, Fur, Etc.)"
+  "25": "Other/Unknown"
+  "37": "Abandoned/Condemned Structure"
+  "38": "Amusement Park"
+  "39": "Arena/Stadium/Fairgrounds/Coliseum"
+  "40": "ATM Separate from Bank"
+  "41": "Auto Dealership New/Used"
+  "42": "Camp/Campground"
+  "44": "Daycare Facility"
+  "45": "Dock/Wharf/Freight/Modal Terminal"
+  "46": "Farm Facility"
+  "47": "Gambling Facility/Casino"
+  "48": "Industrial Site"
+  "49": "Military Installation"
+  "50": "Park/Playground"
+  "51": "Rest Area"
+  "52": "School – College/University"
+  "53": "School – Elementary/Secondary"
+  "54": "Shelter – Mission/Homeless"
+  "55": "Shopping Mall"
+  "56": "Tribal Lands"
+  "57": "Community Center"
+
+bias_codes: &bias_codes
+  "11": "Anti-White"
+  "12": "Anti-Black or African American"
+  "13": "Anti-American Indian/Alaska Native"
+  "14": "Anti-Asian"
+  "15": "Anti-Multiple Races, Group"
+  "16": "Anti-Native Hawaiian/Pacific Islander"
+  "31": "Anti-Arab"
+  "32": "Anti-Hispanic or Latino"
+  "33": "Anti-Other Race/Ethnicity/Ancestry"
+  "21": "Anti-Jewish"
+  "22": "Anti-Catholic"
+  "23": "Anti-Protestant "
+  "24": "Anti-Islamic (Muslim)"
+  "25": "Anti-Other Religion"
+  "26": "Anti-Multiple Religions, Group"
+  "27": "Anti-Atheism/Agnosticism"
+  "28": "Anti-Church of Jesus Christ"
+  "29": "Anti-Jehovah's Witness"
+  "81": "Anti-Eastern Orthodox (Russian, Greek, Other)"
+  "82": "Anti-Other Christian"
+  "83": "Anti-Buddhist"
+  "84": "Anti-Hindu"
+  "85": "Anti-Sikh"
+  "41": "Anti-Gay (Male)"
+  "42": "Anti-Lesbian"
+  "43": "Anti-Lesbian, Gay, Bisexual, or Transgender"
+  "44": "Anti-Heterosexual"
+  "45": "Anti-Bisexual"
+  "51": "Anti-Physical Disability"
+  "52": "Anti-Mental Disability"
+  "61": "Anti-Male"
+  "62": "Anti-Female"
+  "71": "Anti-Transgender"
+  "72": "Anti-Gender Non-Conforming"
+
+victim_type_codes: &victim_type_codes
+  "I": "Individual"
+  "B": "Business"
+  "F": "Financial Institution"
+  "G": "Government"
+  "R": "Religious Organization"
+  "S": "Society/Public"
+  "O": "Other"
+  "U": "Unknown"
+
+# ---------------------------------------------------------------------------------------
+# Record Definitions
+# ---------------------------------------------------------------------------------------
+BH:
+  - name: hate_crime_record_type
+    drop: True
+    categorical: False
+    type: str
+    start: 0
+    end: 1
+    length: 2
+  - name: numeric_state_code
+    drop: True
+    categorical: True
+    type: str
+    start: 2
+    end: 3
+    length: 2
+    values: 
+      <<: *state_numeric_codes
+  - name: originating_agency_id
+    drop: False
+    categorical: False
+    type: str
+    start: 4
+    end: 12
+    length: 9
+  - name: incident_number
+    drop: False
+    categorical: False
+    type: str
+    start: 13
+    end: 24
+    length: 12
+  - name: date_ori_was_added
+    drop: True
+    categorical: False
+    type: date
+    start: 25
+    end: 32
+    length: 8
+  - name: date_ori_went_nibrs
+    drop: True
+    categorical: False
+    type: date
+    start: 33
+    end: 40
+    length: 8
+  - name: city_name
+    drop: False
+    categorical: False
+    type: str
+    start: 41
+    end: 70
+    length: 30
+  - name: state_abbreviation
+    drop: False
+    categorical: True
+    type: str
+    start: 71
+    end: 72
+    length: 2
+    values: 
+      <<: *state_string_codes
+    
+  - name: population_group
+    drop: False
+    categorical: True
+    type: str
+    start: 73
+    end: 74
+    length: 2
+    values: 
+      "1": "All cities 250,000 or over"
+      "1A": "Cities 1,000,000 or over"
+      "1B": "Cities from 500,000 thru 999,999"
+      "1C": "Cities from 250,000 thru 499,999"
+      "2": "Cities from 100,000 thru 249,999"
+      "3": "Cities from 50,000 thru 99,999"
+      "4": "Cities from 25,000 thru 49,999"
+      "5": "Cities from 10,000 thru 24,999"
+      "6": "Cities from 2,500 thru 9,999"
+      "7": "Cities under 2,500"
+      "8": "Non-MSA Counties"
+      "8A": "Non-MSA Counties 100,000 or over"
+      "8B": "Non-MSA Counties from 25,000 thru 99,999"
+      "8C": "Non-MSA Counties from 10,000 thru 24,999"
+      "8D": "Non-MSA Counties under 10,000"
+      "8E": "Non-MSA State Police"
+      "9": "MSA Counties"
+      "9A": "MSA Counties 100,000 or over"
+      "9B": "MSA Counties from 25,000 thru 99,999"
+      "9C": "MSA Counties from 10,000 thru 24,999"
+      "9D": "MSA Counties under 10,000"
+      "9E": "MSA State Police"
+    
+  - name: country_division
+    drop: False
+    categorical: True
+    type: str
+    start: 75
+    end: 75
+    length: 1
+    values: 
+      "1": "New England"
+      "2": "Middle Atlantic"
+      "3": "East North Central"
+      "4": "West North Central"
+      "5": "South Atlantic"
+      "6": "East South Central"
+      "7": "West South Central"
+      "8": "Mountain"
+      "9": "Pacific"
+    
+  - name: country_region
+    drop: False
+    categorical: True
+    type: str
+    start: 76
+    end: 76
+    length: 1
+    values: 
+      "1": "North East"
+      "2": "North Central"
+      "3": "South"
+      "4": "West"
+    
+  - name: agency_indicator
+    drop: False
+    categorical: True
+    type: str
+    start: 77
+    end: 77
+    length: 1
+    values: 
+      "0": "Covered By Another Agency" 
+      "1": "City" 
+      "2": "County"
+      "3": "University or College"
+      "4": "State Police"
+      "5": "Other State Agency"
+    
+  - name: core_city
+    drop: True
+    categorical: False
+    type: bool
+    start: 78
+    end: 78
+    length: 1
+  - name: covered_by_ori
+    drop: True
+    categorical: False
+    type: str
+    start: 79
+    end: 87
+    length: 9
+  - name: fbi_field_office
+    drop: True
+    categorical: False
+    type: str
+    start: 88
+    end: 91
+    length: 4
+  - name: judicial_district
+    drop: False
+    categorical: False
+    type: str
+    start: 92
+    end: 95
+    length: 4
+  - name: agency_nibrs_flag
+    drop: True
+    categorical: False
+    type: str
+    start: 96
+    end: 96
+    length: 1
+  - name: agency_inactive_date
+    drop: True
+    categorical: False
+    type: date
+    start: 97
+    end: 104
+    length: 8
+  - name: five_county_population_coverage
+    drop: True
+    categorical: False
+    type: str
+    start: 105
+    end: 224
+    length: 120
+  - name: current_population_1
+    drop: True
+    categorical: False
+    type: int
+    start: 105
+    end: 113
+    length: 9
+  - name: ucr_county_code_1
+    drop: True
+    categorical: False
+    type: str
+    start: 114
+    end: 116
+    length: 3
+  - name: msa_code_1
+    drop: True
+    categorical: False
+    type: str
+    start: 117
+    end: 119
+    length: 3
+  - name: last_population_1
+    drop: True
+    categorical: False
+    type: int
+    start: 120
+    end: 128
+    length: 9
+  - name: current_population_2
+    drop: True
+    categorical: False
+    type: int
+    start: 129
+    end: 137
+    length: 9
+  - name: ucr_county_code_2
+    drop: True
+    categorical: False
+    type: str
+    start: 138
+    end: 140
+    length: 3
+  - name: msa_code_2
+    drop: True
+    categorical: False
+    type: str
+    start: 141
+    end: 143
+    length: 3
+  - name: last_population_2
+    drop: True
+    categorical: False
+    type: int
+    start: 144
+    end: 152
+    length: 9
+  - name: current_population_3
+    drop: True
+    categorical: False
+    type: int
+    start: 153
+    end: 161
+    length: 9
+  - name: ucr_county_code_3
+    drop: True
+    categorical: False
+    type: str
+    start: 162
+    end: 164
+    length: 3
+  - name: msa_code_3
+    drop: True
+    categorical: False
+    type: str
+    start: 165
+    end: 167
+    length: 3
+  - name: last_population_3
+    drop: True
+    categorical: False
+    type: int
+    start: 168
+    end: 176
+    length: 9
+  - name: current_population_4
+    drop: True
+    categorical: False
+    type: int
+    start: 177
+    end: 185
+    length: 9
+  - name: ucr_county_code_4
+    drop: True
+    categorical: False
+    type: str
+    start: 186
+    end: 188
+    length: 3
+  - name: msa_code_4
+    drop: True
+    categorical: False
+    type: str
+    start: 189
+    end: 191
+    length: 3
+  - name: last_population_4
+    drop: True
+    categorical: False
+    type: int
+    start: 192
+    end: 200
+    length: 9
+  - name: current_population_5
+    drop: True
+    categorical: False
+    type: int
+    start: 201
+    end: 209
+    length: 9
+  - name: ucr_county_code_5
+    drop: True
+    categorical: False
+    type: str
+    start: 210
+    end: 212
+    length: 3
+  - name: msa_code_5
+    drop: True
+    categorical: False
+    type: str
+    start: 213
+    end: 215
+    length: 3
+  - name: last_population_5
+    drop: True
+    categorical: False
+    type: int
+    start: 216
+    end: 224
+    length: 9
+  - name: master_file_year
+    drop: False
+    categorical: False
+    type: str
+    start: 225
+    end: 228
+    length: 4
+  - name: state_first_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 229
+    end: 229
+    length: 1
+  - name: state_second_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 230
+    end: 230
+    length: 1
+  - name: state_third_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 231
+    end: 231
+    length: 1
+  - name: state_fourth_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 232
+    end: 232
+    length: 1
+  - name: federal_first_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 233
+    end: 233
+    length: 1
+  - name: federal_second_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 234
+    end: 234
+    length: 1
+  - name: federal_third_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 235
+    end: 235
+    length: 1
+  - name: federal_fourth_quarter_activity
+    drop: True
+    categorical: False
+    type: str
+    start: 236
+    end: 236
+    length: 1
+  - name: agency_name
+    drop: False
+    categorical: False
+    type: str
+    start: 237
+    end: 266
+    length: 30
+    # note: count codes available here: 
+    # https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt
+  - name: fips_county_codes
+    drop: True
+    categorical: False
+    type: str
+    start: 267
+    end: 281
+    length: 15
+  - name: fips_county_1
+    drop: True
+    categorical: False
+    type: str
+    start: 267
+    end: 269
+    length: 3
+  - name: fips_county_2
+    drop: True
+    categorical: False
+    type: str
+    start: 270
+    end: 272
+    length: 3
+  - name: fips_county_3
+    drop: True
+    categorical: False
+    type: str
+    start: 273
+    end: 275
+    length: 3
+  - name: fips_county_4
+    drop: True
+    categorical: False
+    type: str
+    start: 276
+    end: 278
+    length: 3
+  - name: fips_county_5
+    drop: True
+    categorical: False
+    type: str
+    start: 279
+    end: 281
+    length: 3
+
+IR: 
+  - name: hate_crime_record_type
+    drop: True
+    categorical: False
+    type: str
+    start: 0
+    end: 1
+    length: 2
+  - name: numeric_state_code
+    drop: False
+    categorical: True
+    type: str
+    start: 2
+    end: 3
+    length: 2
+    values: 
+      <<: *state_numeric_codes
+  - name: originating_agency_id
+    drop: False
+    categorical: False
+    type: str
+    start: 4
+    end: 12
+    length: 9
+  - name: incident_number
+    drop: False
+    categorical: False
+    type: str
+    start: 13
+    end: 24
+    length: 12
+  - name: incident_date
+    drop: False
+    categorical: False
+    type: date
+    start: 25
+    end: 32
+    length: 8
+  - name: data_source
+    drop: False
+    categorical: True
+    type: str
+    start: 33
+    end: 33
+    length: 1
+    values: 
+      "D": "Data entry form"
+      "F": "Floppy diskette/Internet e-mail"
+      "N": "NIBRS Incident"
+  - name: quarter
+    drop: False
+    categorical: True
+    type: str
+    start: 34
+    end: 34
+    length: 1
+    values: 
+      "1": "Q1"
+      "2": "Q2"
+      "3": "Q3"
+      "4": "Q4"
+  - name: number_of_victims
+    drop: False
+    categorical: False
+    type: int
+    start: 35
+    end: 37
+    length: 3
+  - name: total_offenders
+    drop: False
+    categorical: False
+    type: int
+    start: 38
+    end: 39
+    length: 2
+  - name: offenders_race
+    drop: False
+    categorical: True
+    type: str
+    start: 40
+    end: 40
+    length: 1
+    values: 
+      <<: *race_codes
+  - name: ten_offense_group_information
+    drop: True
+    categorical: False
+    type: str
+    start: 41
+    end: 220
+    length: 180
+  - name: ucr_offense_code_1
+    drop: False
+    categorical: True
+    type: str
+    start: 41
+    end: 43
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_1
+    drop: False
+    categorical: False
+    type: int
+    start: 44
+    end: 46
+    length: 3
+  - name: location_code_1
+    drop: False
+    categorical: True
+    type: str
+    start: 47
+    end: 48
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_1
+    drop: False
+    categorical: True
+    type: str
+    start: 49
+    end: 50
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_1
+    drop: False
+    categorical: True
+    type: str
+    start: 51
+    end: 58
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_2
+    drop: False
+    categorical: True
+    type: str
+    start: 59
+    end: 61
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_2
+    drop: False
+    categorical: False
+    type: int
+    start: 62
+    end: 64
+    length: 3
+  - name: location_code_2
+    drop: False
+    categorical: True
+    type: str
+    start: 65
+    end: 66
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_2
+    drop: False
+    categorical: True
+    type: str
+    start: 67
+    end: 68
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_2
+    drop: False
+    categorical: True
+    type: str
+    start: 69
+    end: 76
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_3
+    drop: False
+    categorical: True
+    type: str
+    start: 77
+    end: 79
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_3
+    drop: False
+    categorical: False
+    type: int
+    start: 80
+    end: 82
+    length: 3
+  - name: location_code_3
+    drop: False
+    categorical: True
+    type: str
+    start: 83
+    end: 84
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_3
+    drop: False
+    categorical: True
+    type: str
+    start: 85
+    end: 86
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_3
+    drop: False
+    categorical: True
+    type: str
+    start: 87
+    end: 94
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_4
+    drop: False
+    categorical: True
+    type: str
+    start: 95
+    end: 97
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_4
+    drop: False
+    categorical: False
+    type: int
+    start: 98
+    end: 100
+    length: 3
+  - name: location_code_4
+    drop: False
+    categorical: True
+    type: str
+    start: 101
+    end: 102
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_4
+    drop: False
+    categorical: True
+    type: str
+    start: 103
+    end: 104
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_4
+    drop: False
+    categorical: True
+    type: str
+    start: 105
+    end: 112
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_5
+    drop: False
+    categorical: True
+    type: str
+    start: 113
+    end: 115
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_5
+    drop: False
+    categorical: False
+    type: int
+    start: 116
+    end: 118
+    length: 3
+  - name: location_code_5
+    drop: False
+    categorical: True
+    type: str
+    start: 119
+    end: 120
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_5
+    drop: False
+    categorical: True
+    type: str
+    start: 121
+    end: 122
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_5
+    drop: False
+    categorical: True
+    type: str
+    start: 123
+    end: 130
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_6
+    drop: False
+    categorical: True
+    type: str
+    start: 131
+    end: 133
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_6
+    drop: False
+    categorical: False
+    type: int
+    start: 134
+    end: 136
+    length: 3
+  - name: location_code_6
+    drop: False
+    categorical: True
+    type: str
+    start: 137
+    end: 138
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_6
+    drop: False
+    categorical: True
+    type: str
+    start: 139
+    end: 140
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_6
+    drop: False
+    categorical: True
+    type: str
+    start: 141
+    end: 148
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_7
+    drop: False
+    categorical: True
+    type: str
+    start: 149
+    end: 151
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_7
+    drop: False
+    categorical: False
+    type: int
+    start: 152
+    end: 154
+    length: 3
+  - name: location_code_7
+    drop: False
+    categorical: True
+    type: str
+    start: 155
+    end: 156
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_7
+    drop: False
+    categorical: True
+    type: str
+    start: 157
+    end: 158
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_7
+    drop: False
+    categorical: True
+    type: str
+    start: 159
+    end: 166
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_8
+    drop: False
+    categorical: True
+    type: str
+    start: 167
+    end: 169
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_8
+    drop: False
+    categorical: False
+    type: int
+    start: 170
+    end: 172
+    length: 3
+  - name: location_code_8
+    drop: False
+    categorical: True
+    type: str
+    start: 173
+    end: 174
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_8
+    drop: False
+    categorical: True
+    type: str
+    start: 175
+    end: 176
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_8
+    drop: False
+    categorical: True
+    type: str
+    start: 177
+    end: 184
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_9
+    drop: False
+    categorical: True
+    type: str
+    start: 185
+    end: 187
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_9
+    drop: False
+    categorical: False
+    type: int
+    start: 188
+    end: 190
+    length: 3
+  - name: location_code_9
+    drop: False
+    categorical: True
+    type: str
+    start: 191
+    end: 192
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_9
+    drop: False
+    categorical: True
+    type: str
+    start: 193
+    end: 194
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_9
+    drop: False
+    categorical: True
+    type: str
+    start: 195
+    end: 202
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: ucr_offense_code_10
+    drop: False
+    categorical: True
+    type: str
+    start: 203
+    end: 205
+    length: 3
+    values: 
+      <<: *offense_codes
+  - name: number_of_victims_10
+    drop: False
+    categorical: False
+    type: int
+    start: 206
+    end: 208
+    length: 3
+  - name: location_code_10
+    drop: False
+    categorical: True
+    type: str
+    start: 209
+    end: 210
+    length: 2
+    values: 
+      <<: *offense_location_codes
+  - name: bias_motivation_10
+    drop: False
+    categorical: True
+    type: str
+    start: 211
+    end: 212
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: types_of_victims_10
+    drop: False
+    categorical: True
+    type: str
+    start: 213
+    end: 220
+    length: 8
+    values: 
+      <<: *victim_type_codes
+  - name: multiple_bias_motivation_information
+    drop: True
+    categorical: False
+    type: str
+    start: 221
+    end: 300
+    length: 80
+  - name: bias_motivation_2_offense_1
+    drop: False
+    categorical: True
+    type: str
+    start: 221
+    end: 222
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_1
+    drop: False
+    categorical: True
+    type: str
+    start: 223
+    end: 224
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_1
+    drop: False
+    categorical: True
+    type: str
+    start: 225
+    end: 226
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_1
+    drop: False
+    categorical: True
+    type: str
+    start: 227
+    end: 228
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_2
+    drop: False
+    categorical: True
+    type: str
+    start: 229
+    end: 230
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_2
+    drop: False
+    categorical: True
+    type: str
+    start: 231
+    end: 232
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_2
+    drop: False
+    categorical: True
+    type: str
+    start: 233
+    end: 234
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_2
+    drop: False
+    categorical: True
+    type: str
+    start: 235
+    end: 236
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_3
+    drop: False
+    categorical: True
+    type: str
+    start: 237
+    end: 238
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_3
+    drop: False
+    categorical: True
+    type: str
+    start: 239
+    end: 240
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_3
+    drop: False
+    categorical: True
+    type: str
+    start: 241
+    end: 242
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_3
+    drop: False
+    categorical: True
+    type: str
+    start: 243
+    end: 244
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_4
+    drop: False
+    categorical: True
+    type: str
+    start: 245
+    end: 246
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_4
+    drop: False
+    categorical: True
+    type: str
+    start: 247
+    end: 248
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_4
+    drop: False
+    categorical: True
+    type: str
+    start: 249
+    end: 250
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_4
+    drop: False
+    categorical: True
+    type: str
+    start: 251
+    end: 252
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_5
+    drop: False
+    categorical: True
+    type: str
+    start: 253
+    end: 254
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_5
+    drop: False
+    categorical: True
+    type: str
+    start: 255
+    end: 256
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_5
+    drop: False
+    categorical: True
+    type: str
+    start: 257
+    end: 258
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_5
+    drop: False
+    categorical: True
+    type: str
+    start: 259
+    end: 260
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_6
+    drop: False
+    categorical: True
+    type: str
+    start: 261
+    end: 262
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_6
+    drop: False
+    categorical: True
+    type: str
+    start: 263
+    end: 264
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_6
+    drop: False
+    categorical: True
+    type: str
+    start: 265
+    end: 266
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_6
+    drop: False
+    categorical: True
+    type: str
+    start: 267
+    end: 268
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_7
+    drop: False
+    categorical: True
+    type: str
+    start: 269
+    end: 270
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_7
+    drop: False
+    categorical: True
+    type: str
+    start: 271
+    end: 272
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_7
+    drop: False
+    categorical: True
+    type: str
+    start: 273
+    end: 274
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_7
+    drop: False
+    categorical: True
+    type: str
+    start: 275
+    end: 276
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_8
+    drop: False
+    categorical: True
+    type: str
+    start: 277
+    end: 278
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_8
+    drop: False
+    categorical: True
+    type: str
+    start: 279
+    end: 280
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_8
+    drop: False
+    categorical: True
+    type: str
+    start: 281
+    end: 282
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_8
+    drop: False
+    categorical: True
+    type: str
+    start: 283
+    end: 284
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_9
+    drop: False
+    categorical: True
+    type: str
+    start: 285
+    end: 286
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_9
+    drop: False
+    categorical: True
+    type: str
+    start: 287
+    end: 288
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_9
+    drop: False
+    categorical: True
+    type: str
+    start: 289
+    end: 290
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_9
+    drop: False
+    categorical: True
+    type: str
+    start: 291
+    end: 292
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_2_offense_10
+    drop: False
+    categorical: True
+    type: str
+    start: 293
+    end: 294
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_3_offense_10
+    drop: False
+    categorical: True
+    type: str
+    start: 295
+    end: 296
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_4_offense_10
+    drop: False
+    categorical: True
+    type: str
+    start: 297
+    end: 298
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: bias_motivation_5_offense_10
+    drop: False
+    categorical: True
+    type: str
+    start: 299
+    end: 300
+    length: 2
+    values: 
+      <<: *bias_codes
+  - name: victim_age_breakdowns
+    drop: False
+    categorical: False
+    type: int
+    start: 301
+    end: 306
+    length: 6
+  - name: total_number_of_adult_victims
+    drop: False
+    categorical: False
+    type: int
+    start: 301
+    end: 303
+    length: 3
+  - name: total_number_of_victims_under_18
+    drop: False
+    categorical: False
+    type: int
+    start: 304
+    end: 306
+    length: 3
+  - name: offender_age_breakdowns
+    drop: False
+    categorical: False
+    type: int
+    start: 307
+    end: 310
+    length: 4
+  - name: total_number_of_adult_offenders
+    drop: False
+    categorical: False
+    type: int
+    start: 307
+    end: 308
+    length: 2
+  - name: total_number_of_offenders_under_18
+    drop: False
+    categorical: False
+    type: int
+    start: 309
+    end: 310
+    length: 2
+  - name: ethnicity_of_offender_or_group
+    drop: False
+    categorical: True
+    type: str
+    start: 311
+    end: 311
+    length: 1
+    values:
+      <<: *ethnicity_codes
