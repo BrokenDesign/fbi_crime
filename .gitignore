@@ -1,6 +1,6 @@
 
 # Ignore dynaconf secret files
 .secrets.*
-**/junk**
-**/data**
+data
+junk
 layouts/*.pdf
